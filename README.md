@@ -309,6 +309,6 @@ app.layer('slowLayer', userMiddleware, function(tile, render){
 ## Client Use
 There are a number of ways to use topojson vector tiles on the client. Here are a few examples (FYI _not_ currently using a TileSplash endpoint):
 
-* [using leaflet](http://bl.ocks.org/wboykinm/7393674)
+* [using leaflet and hoverboard](https://devtristan.github.io/hoverboard/#16/46.8076/-71.2087)
 * [using d3.geo.tile](http://bl.ocks.org/wboykinm/7388233)
 * [using openlayers 3](http://bl.ocks.org/wboykinm/cc509eb2763ca1ba9293)
