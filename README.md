@@ -1,7 +1,7 @@
 TILESPLASH
 ==========
 
-a light and quick nodejs webserver for serving topojson vector tiles from a postgis backend. inspired by [Michal Migurski](http://mike.teczno.com/)'s [TileStache](http://tilestache.org/)
+a light and quick nodejs webserver for serving topojson and mapbox vector tiles from a postgis backend. inspired by [Michal Migurski](http://mike.teczno.com/)'s [TileStache](http://tilestache.org/)
 
 <img src="https://farm4.staticflickr.com/3854/14427710520_f3ba841c36_c.jpg"/>
 
@@ -30,6 +30,9 @@ app.layer('test_layer', function(req, res, tile, done){
 
 app.server.listen(3000);
 ```
+
+Topojson tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.topojson`
+Mapbox vector tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.mvt`
 
 #Usage
 
