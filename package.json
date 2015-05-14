@@ -24,6 +24,7 @@
     "async": "~0.9.0",
     "caching": "git://github.com/faradayio/node-caching.git",
     "clone": "^1.0.2",
+    "connect-timeout": "^1.6.2",
     "express": "~4.4.1",
     "pg": "^4.3.0",
     "sphericalmercator": "~1.0.2",
