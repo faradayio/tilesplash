@@ -1,7 +1,7 @@
 {
   "name": "tilesplash",
   "description": "a light and quick nodejs webserver for serving topojson vector tiles from a postgis backend",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "maintainers": [
     {
       "name": "Tristan Davies",
