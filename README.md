@@ -5,17 +5,17 @@ a light and quick nodejs webserver for serving topojson and mapbox vector tiles 
 
 <img src="https://farm4.staticflickr.com/3854/14427710520_f3ba841c36_c.jpg"/>
 
-#Dependencies
+# Dependencies
 
 Tilesplash depends on `node` and `npm`
 
-#Installation
+# Installation
 
 ```bash
 npm install tilesplash
 ```
 
-#Example
+# Example
 
 Here's a simple tile server with one layer
 
@@ -34,9 +34,9 @@ app.server.listen(3000);
 Topojson tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.topojson`
 Mapbox vector tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.mvt`
 
-#Usage
+# Usage
 
-##new Tilesplash(connection_details, [cacheType])
+## `new Tilesplash(connection_details, [cacheType])`
 
 creates a new tilesplash server using the given postgres database
 
@@ -46,11 +46,11 @@ var app = new Tilesplash('postgres://tiles@localhost/tile_database');
 
 To cache using redis, pass `'redis'` as the second argument. Otherwise an in-process cache will be used.
 
-###Tilesplash.server
+### `Tilesplash.server`
 
 an [express](http://expressjs.com/) object, mostly used internally but you can use it to add middleware for authentication, browser caching, gzip, etc.
 
-###Tilesplash.layer(name, [middleware, ...] callback)
+### `Tilesplash.layer(name, [middleware, ...] callback)`
 
 __name__: the name of your layer. Tiles will be served at /__name__/z/x/y.topojson
 
@@ -59,7 +59,7 @@ __middleware__: a [middleware function](#middleware)
 __callback__: your tile building function with the following arguments. function([tile](#tile), [render](#render))
 
 
-####Simple layer
+#### Simple layer
 
 This layer renders tiles containing geometry from the `the_geom` column in `test_table`
 
@@ -69,7 +69,7 @@ app.layer('simpleLayer', function(tile, render){
 });
 ```
 
-####Combined layers
+#### Combined layers
 
 Tilesplash can render tiles from multiple queries at once
 
@@ -82,7 +82,7 @@ app.layer('multiLayer', function(tile, render){
 });
 ```
 
-####Escaping variables
+#### Escaping variables
 
 Tilesplash has support for escaping variables in sql queries. You can do so by passing an array instead of a string wherever a sql string is accepted.
 
@@ -99,7 +99,7 @@ app.layer('escapedMultiLayer', function(tile, render){
 });
 ```
 
-####Restricting zoom level
+#### Restricting zoom level
 
 Sometimes you only want a layer to be visible on certain zoom levels. To do that, we simply render an empty tile when tile.z is too low or too high.
 
@@ -129,7 +129,7 @@ app.layer('fancyLayer', function(tile, render){
 });
 ```
 
-##Middleware
+## Middleware
 
 Middleware allows you to easily extend tilesplash to add additional functionality. Middleware is defined like this:
 
@@ -155,7 +155,7 @@ app.layer('thisOneHasMiddleware', userMiddleware, function(tile, render){
 
 Middleware can be synchronous or asynchronous, just be sure to call `next()` when you're done!
 
-##tile
+## tile
 
 `tile` is a parameter passed to middleware and layer callbacks. It is an object containing information about the tile being requested. It will look something like this:
 
@@ -183,23 +183,23 @@ Note that when you interpolate tile variables into your queries with the exclama
 
 When you want to use user input in a query, see [Escaping variables](#escaping-variables) above.
 
-##render
+## `render`
 
 `render` is the second argument passed to your layer callback function. You can use it to render different kinds of tiles.
 
-###render(sql)
+### `render(sql)`
 
 Runs a SQL query and displays the result as a tile
 
-###render(object)
+### `render(object)`
 
 Runs multiple SQL queries and renders them in seperate topojson layers. See [Combined layers](#combined-layers) above.
 
-###render.query()
+### `render.query()`
 
 Alias of render()
 
-###render.queryFile(fileName)
+### `render.queryFile(fileName)`
 
 Use this if your SQL is really long and/or you want to keep it seperate.
 
@@ -209,15 +209,15 @@ app.layer('complicatedLayer', function(tile, render){
 });
 ```
 
-###render.empty()
+### `render.empty()`
 
 Renders an empty tile
 
-###render.error()
+### `render.error()`
 
 Replies with a 500 error
 
-###render.raw(string or http code)
+### `render.raw(string or http code)`
 
 Sends a raw reply. I can't think of any reason you would want to do this, but feel free to experiment.
 
@@ -233,7 +233,7 @@ app.layer('notThereLayer', function(tile, render){
 });
 ```
 
-###render.rawFile(fileName)
+### `render.rawFile(fileName)`
 
 Replies with the specified file
 
@@ -243,13 +243,13 @@ app.layer('staticLayer', function(tile, render){
 });
 ```
 
-##Caching
+## Caching
 
 Caching is very important. By default, Tilesplash uses an in-memory cache. You can use redis instead by passing `'redis'` as the second argument when initializing a Tilesplash server.
 
 There are two ways to implement caching. You can either do it globally or on a layer by layer basis.
 
-###app.cache([keyGenerator], ttl)
+### app.cache([keyGenerator], ttl)
 
 Use this to define caching across your entire application
 
@@ -273,7 +273,7 @@ app.cache(function(tile){
 }, 1000 * 60 * 60 * 24 * 30); //ttl 30 days
 ```
 
-###this.cache([keyGenerator], ttl)
+### `this.cache([keyGenerator], ttl)`
 
 Layer-specific caching works identically to global caching as defined above, except that it only applies to one layer and you define it within that layer.
 
