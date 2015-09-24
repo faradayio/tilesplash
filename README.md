@@ -309,6 +309,21 @@ app.layer('slowLayer', userMiddleware, function(tile, render){
   render.queryFile('slowQuery.sql');
 });
 ```
+
+## Multiple database replicas
+
+Okay, so say you have like a billion tiles and you want to distribute the load. How are you gonna do it? Read replicas.
+
+You can use them like this:
+
+```javascript
+var app = new Tilesplash([
+  'postgres://tristan@localhost/tilesplash_test',
+  'postgres://tristan@localhost/tilesplash_replica1',
+  'postgres://tristan@localhost/tilesplash_replica2'
+]);
+```
+
 ## Client Use
 There are a number of ways to use topojson vector tiles on the client. Here are a few examples (FYI _not_ currently using a TileSplash endpoint):
 
