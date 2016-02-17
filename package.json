@@ -20,6 +20,8 @@
     "test": "mocha"
   },
   "devDependencies": {
+    "mapnik": "^3.4.16",
+    "path": "^0.12.7",
     "request": "~2.36.0",
     "mocha": "~1.20.0"
   },

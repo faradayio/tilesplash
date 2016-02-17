@@ -22,10 +22,10 @@ Here's a simple tile server with one layer
 ```javascript
 var Tilesplash = require('tilesplash');
 
-var app = new Tilesplash('postgres://tristan@localhost/tilesplash_test');
+var app = new Tilesplash('postgres://username@localhost/db_name');
 
-app.layer('test_layer', function(req, res, tile, done){
-  done(null, 'SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM tilesplash_test WHERE ST_Intersects(the_geom, !bbox_4326!)');
+app.layer('test_layer', function(tile, render){
+  render('SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM layer WHERE ST_Intersects(the_geom, !bbox_4326!)');
 });
 
 app.server.listen(3000);
