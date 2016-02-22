@@ -1,7 +1,7 @@
 {
   "name": "tilesplash",
   "description": "a light and quick nodejs webserver for serving topojson vector tiles from a postgis backend",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "maintainers": [
     {
       "name": "Tristan Davies",
@@ -20,12 +20,12 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mapnik": "^3.4.16",
     "path": "^0.12.7",
     "request": "~2.36.0",
     "mocha": "~1.20.0"
   },
   "dependencies": {
+    "mapnik": "^3.4.16",
     "async": "~0.9.0",
     "caching": "git://github.com/faradayio/node-caching.git",
     "clone": "^1.0.2",
