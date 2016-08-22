@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/faradayio/tilesplash.git"
   },
+  "engines" : { 
+    "node" : ">=4.4.0 <6.0.0" 
+  },
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha"
@@ -25,7 +28,7 @@
     "mocha": "~1.20.0"
   },
   "dependencies": {
-    "mapnik": "^3.4.16",
+    "mapnik": "~3.4.19",
     "async": "~0.9.0",
     "caching": "git://github.com/faradayio/node-caching.git",
     "clone": "^1.0.2",
