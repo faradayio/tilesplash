@@ -34,7 +34,7 @@ app.server.listen(3000);
 - Topojson tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.topojson`
 - Mapbox vector tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.mvt`
 
-(See [client implementation examples](##Client) below)
+(See [client implementation examples](#client) below)
 
 # Usage
 
