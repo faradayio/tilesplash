@@ -1,7 +1,7 @@
 TILESPLASH
 ==========
 
-A light and quick nodejs webserver for serving topojson and mapbox vector tiles from a [postgis](http://www.postgis.net/) backend. inspired by [Michal Migurski](http://mike.teczno.com/)'s [TileStache](http://tilestache.org/). Works great for powering [Mapbox-GL-based](https://www.mapbox.com/mapbox-gl-js/example/set-perspective/) apps like this:
+A light and quick nodejs webserver for serving topojson and mapbox vector tiles from a [postgis](http://www.postgis.net/) backend. inspired by [Michal Migurski](http://mike.teczno.com/)'s [TileStache](http://tilestache.org/)
 
 ![example](https://www.dropbox.com/s/viwv9layui7vw7x/Screenshot%202016-10-14%2011.20.03.png?dl=1)
 
