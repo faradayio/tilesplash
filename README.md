@@ -52,11 +52,13 @@ To cache using redis, pass `'redis'` as the second argument. Otherwise an in-pro
 
 an [express](http://expressjs.com/) object, mostly used internally but you can use it to add middleware for authentication, browser caching, gzip, etc.
 
-### `Tilesplash.layer(name, [middleware, ...] callback)`
+### `Tilesplash.layer(name, [middleware, ...], [mvtOptions], callback)`
 
 __name__: the name of your layer. Tiles will be served at /__name__/z/x/y.topojson
 
 __middleware__: a [middleware function](#middleware)
+
+__mvtOptions__: optional [mapnik parameters](http://mapnik.org/documentation/node-mapnik/3.5/#VectorTile.addGeoJSON), e.g. `{ strictly_simple: true }`
 
 __callback__: your tile building function with the following arguments. function([tile](#tile), [render](#render))
 
@@ -81,6 +83,16 @@ app.layer('multiLayer', function(tile, render){
     circles: 'SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM circles WHERE ST_Intersects(the_geom, !bbox_4326!)',
     squares: 'SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM squares WHERE ST_Intersects(the_geom, !bbox_4326!)'
   });
+});
+```
+
+#### Using mapnik geometry parameters
+
+This layer renders tiles containing geometry features simplified to a threshold of `0.4`. Full parameters are documented [here](http://mapnik.org/documentation/node-mapnik/3.5/#VectorTile.addGeoJSON).
+
+```javascript
+app.layer('simpleLayer', { simplify_distance: 0.4 }, function(tile, render){
+  render('SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM test_table WHERE ST_Intersects(the_geom, !bbox_4326!)');
 });
 ```
 
