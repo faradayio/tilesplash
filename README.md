@@ -88,10 +88,10 @@ app.layer('multiLayer', function(tile, render){
 
 #### Using mapnik geometry parameters
 
-This layer renders tiles containing geometry features simplified to a threshold of `0.4`. Full parameters are documented [here](http://mapnik.org/documentation/node-mapnik/3.5/#VectorTile.addGeoJSON).
+This layer renders tiles containing geometry features simplified to a threshold of `4`. Full parameters are documented [here](http://mapnik.org/documentation/node-mapnik/3.5/#VectorTile.addGeoJSON).
 
 ```javascript
-app.layer('simpleLayer', { simplify_distance: 0.4 }, function(tile, render){
+app.layer('simpleLayer', { simplify_distance: 4 }, function(tile, render){
   render('SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM test_table WHERE ST_Intersects(the_geom, !bbox_4326!)');
 });
 ```
