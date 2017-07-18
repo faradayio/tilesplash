@@ -22,12 +22,21 @@ Here's a simple tile server with one layer
 ```javascript
 var Tilesplash = require('tilesplash');
 
-var app = new Tilesplash('postgres://username@localhost/db_name');
+// invoke tilesplash with DB options
+var app = new Tilesplash({
+  user: myUser,
+  password: myPassword,
+  host: localhost,
+  port: 5432,
+  database: myDb
+});
 
+// define a layer
 app.layer('test_layer', function(tile, render){
   render('SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM layer WHERE ST_Intersects(the_geom, !bbox_4326!)');
 });
 
+// serve tiles at port 3000
 app.server.listen(3000);
 ```
 
@@ -43,7 +52,15 @@ app.server.listen(3000);
 creates a new tilesplash server using the given postgres database
 
 ```javascript
-var app = new Tilesplash('postgres://tiles@localhost/tile_database');
+var dbConfig = {
+  user: username,
+  password: password,
+  host: hostname,
+  port: 5432,
+  database: dbname
+}
+
+var app = new Tilesplash(dbConfig);
 ```
 
 To cache using redis, pass `'redis'` as the second argument. Otherwise an in-process cache will be used.

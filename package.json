@@ -1,7 +1,7 @@
 {
   "name": "tilesplash",
   "description": "A light and quick nodejs webserver for serving mapbox vector tiles (and topojson) from a postgis backend",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "maintainers": [
     {
       "name": "Tristan Davies",
@@ -32,13 +32,13 @@
   },
   "dependencies": {
     "@mapbox/sphericalmercator": "^1.0.5",
-    "async": "^2.1.1",
+    "async": "^2.5.0",
     "caching": "^0.1.4",
-    "clone": "^1.0.2",
-    "connect-timeout": "^1.6.2",
-    "express": "^4.14.0",
-    "mapnik": "~3.6.0",
-    "pg": "^6.1.0",
-    "topojson": "^1.6.27"
+    "clone": "^2.1.1",
+    "connect-timeout": "^1.9.0",
+    "express": "^4.15.3",
+    "mapnik": "~3.6.2",
+    "pg": "^6.4.1",
+    "topojson": "^3.0.0"
   }
 }
