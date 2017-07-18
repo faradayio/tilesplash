@@ -31,14 +31,14 @@
     "mocha": "~1.20.0"
   },
   "dependencies": {
+    "@mapbox/sphericalmercator": "^1.0.5",
     "async": "^2.1.1",
-    "caching": "git://github.com/faradayio/node-caching.git",
+    "caching": "^0.1.4",
     "clone": "^1.0.2",
     "connect-timeout": "^1.6.2",
     "express": "^4.14.0",
-    "mapnik": "~3.5.14",
+    "mapnik": "~3.6.0",
     "pg": "^6.1.0",
-    "sphericalmercator": "^1.0.5",
     "topojson": "^1.6.27"
   }
 }
