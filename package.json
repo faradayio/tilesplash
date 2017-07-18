@@ -35,8 +35,8 @@
     "async": "^2.5.0",
     "caching": "^0.1.4",
     "clone": "^2.1.1",
-    "connect-timeout": "^1.6.2",
-    "express": "^4.14.0",
+    "connect-timeout": "^1.9.0",
+    "express": "^4.15.3",
     "mapnik": "~3.6.2",
     "pg": "^6.4.1",
     "topojson": "^1.6.27"
