@@ -43,7 +43,7 @@ app.server.listen(3000);
 - Topojson tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.topojson`
 - Mapbox vector tiles will be available at `http://localhost:3000/test_layer/{z}/{x}/{y}.mvt`
 
-(See [client implementation examples](https://github.com/faradayio/tilesplash#client) below)
+(See [client implementation examples](https://github.com/faradayio/tilesplash#client) below, and complete demo implementation in [`demo/`](demo/README.md))
 
 # Usage
 
