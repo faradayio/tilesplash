@@ -1,6 +1,6 @@
 {
   "name": "tilesplash-demo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "a demo server and client for tilesplash",
   "main": "test.js",
   "scripts": {
@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "static-server": "^2.0.5",
-    "tilesplash": "^3.1.0"
+    "tilesplash": "^3.1.2"
   }
 }
