@@ -9,6 +9,7 @@
   "author": "bill@faraday.io",
   "license": "MIT",
   "dependencies": {
+    "static-server": "^2.0.5",
     "tilesplash": "^3.1.0"
   }
 }
