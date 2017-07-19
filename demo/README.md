@@ -27,4 +27,4 @@ npm install
 npm run points
 ```
 
-Then visit [http://localhost:8000/](http://localhost:8000/) and watch as the glorious city of Denver unfolds in point form.
+Then visit [http://localhost:8000/points.html](http://localhost:8000/points.html) and watch as the glorious city of Denver unfolds in point form.
