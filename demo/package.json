@@ -1,0 +1,15 @@
+{
+  "name": "tilesplash-demo",
+  "version": "0.1.0",
+  "description": "a demo server and client for tilesplash",
+  "main": "test.js",
+  "scripts": {
+    "points": "node pointserver.js & static-server -p 8000"
+  },
+  "author": "bill@faraday.io",
+  "license": "MIT",
+  "dependencies": {
+    "static-server": "^2.0.5",
+    "tilesplash": "^3.1.0"
+  }
+}

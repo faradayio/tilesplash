@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Tilesplash demo</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZmFyYWRheTIiLCJhIjoiY2l1c2Q3NWU3MDBkbTJ5cWowczBvbjhsZiJ9.OjMt4z15E_Mhbn1Fwe4bHg';
+var map = new mapboxgl.Map({
+    style: 'mapbox://styles/faraday2/ciq3sorzs000qb1lxu41eavgf',
+    center: [-104.9572,39.7298],
+    zoom: 14,
+    pitch: 60,
+    bearing: 0,
+    container: 'map',
+    hash: true
+});
+
+var circleStops = [
+  // zoom is 5 -> circle radius will be 1px
+  [5, 0.5],
+  // zoom is 10 -> circle radius will be 2px
+  [9, 1],
+  [10, 3]
+]
+    
+map.on('load', function () {
+  map.addSource('oa-addresses', {
+    'type': 'vector',
+    "tiles": ["http://localhost:3000/addresses/{z}/{x}/{y}.mvt"],
+    "tolerance": 0
+  });
+  
+  map.addLayer({
+    "id": "oa-addresses-0",
+    "source": "oa-addresses",
+    "source-layer": "vectile",
+    "type": "circle",
+    "paint": {
+      "circle-color": "#588df8",
+      "circle-radius": {
+        "stops": circleStops
+      },
+      "circle-opacity": 0.6
+    }//,
+    //"filter": ["==", "aud_id", "aud_0"]
+  }, "water");
+
+  map.addControl(new mapboxgl.NavigationControl());
+  
+})
+
+</script>
+
+</body>
+</html>
