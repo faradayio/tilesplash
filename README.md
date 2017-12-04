@@ -103,6 +103,21 @@ app.layer('multiLayer', function(tile, render){
 });
 ```
 
+In fact, `simpleLayer` is just a shorthand for `multiLayer` with the only query named `vectile`.
+The code below is equivalent to the _simple layer example_:
+
+```javascript
+app.layer('multiLayer', function(tile, render){
+  render({
+    vectile: 'SELECT ST_AsGeoJSON(the_geom) as the_geom_geojson FROM test_table WHERE ST_Intersects(the_geom, !bbox_4326!)',
+  });
+});
+```
+
+Knowing the name of the query (i.e. `vectile`, `circles`, `squares`, etc.) is important when rendering tiles on the client.
+The value corresponds to `source-layer` in [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/) layer spec (see [example](https://www.mapbox.com/mapbox-gl-js/example/vector-source/)).
+
+
 #### Using mapnik geometry parameters
 
 This layer renders tiles containing geometry features simplified to a threshold of `4`. Full parameters are documented [here](http://mapnik.org/documentation/node-mapnik/3.5/#VectorTile.addGeoJSON).
