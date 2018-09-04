@@ -13,7 +13,9 @@ This is a simple [Mapbox GL](https://www.mapbox.com/mapbox-gl-js/api/) example o
 
 ## Setup
 
-Run this collection of should-really-be-in-a-docker-container commands to get sample data and configure the local DB:
+1. Get a [Mapbox Token](http://mapbox.com/signup) and put it [in index.html](https://github.com/faradayio/tilesplash/blob/master/demo/index.html#L18)
+
+2. Run this collection of should-really-be-in-a-docker-container commands to get sample data and configure the local DB:
 
 ```
 bash demo_config.sh
